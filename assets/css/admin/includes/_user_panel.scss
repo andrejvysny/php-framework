@@ -1,0 +1,60 @@
+@import "../variables";
+
+
+#userPanel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  z-index: 1001;
+  height: 100vh;
+  width: 400px;
+  padding: 10px;
+  background-color: $main-card-bg-color;
+  color: $main-txt-color;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: .3s;
+
+  &.open {
+    right: 0 !important;
+  }
+
+  header {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $main-bg-color;
+
+    .avatar {
+      margin-right: 20px;
+
+      img {
+        object-fit: cover;
+        object-position: center;
+        border-radius: 0.5rem;
+        width: 100px;
+        height: 100px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    .user-info {
+
+      h2 {
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
+
+      h3 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: .8rem;
+      }
+    }
+
+
+  }
+}

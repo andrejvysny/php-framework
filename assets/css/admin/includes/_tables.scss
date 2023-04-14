@@ -1,0 +1,48 @@
+@import "../variables";
+
+section.table {
+  color: $main-txt-color;
+  background-color: $main-card-bg-color;
+  overflow: auto;
+  width: 100%;
+
+
+  .content {
+    overflow: hidden;
+
+    .head {
+      font-weight: bold;
+      padding: 1rem 0;
+    }
+
+    .line {
+      font-weight: normal;
+      padding: 0;
+      border-bottom: 4px solid $main-bg-color;
+
+      &:hover {
+        background-color: #111111;
+      }
+    }
+
+    .line > div, .head > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+  }
+}
+
+
+.nav-pills{
+  .nav-link{
+    color: $main-txt-color;
+    background-color: $main-bg-color;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    &.active{
+      background-color:$primary;
+    }
+  }
+}

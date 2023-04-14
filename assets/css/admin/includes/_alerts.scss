@@ -1,0 +1,14 @@
+.alert{
+  position:fixed; top: 50px; right: 25px; z-index: 1000;
+  padding: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  i{
+    font-size: 1.3rem;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+}

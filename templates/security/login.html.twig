@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body_id app.request.get('_route') %}
+
+{% block body %}
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-xl-4 col-md-6 col-sm-10 col-12 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+
+                        <form method="post">
+                            <h1 class="h3 mb-3 font-weight-normal text-center">Login</h1>
+                            {% if error %}
+                                <div class="alert alert-danger p-2 text-center">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+
+                            {% if not app.user %}
+                                <label for="username">Email</label>
+                                <input type="email" id="username" name="_username" value="{{ last_username }}" class="form-control mb-3" autocomplete="email" required autofocus/>
+
+                                <label for="password">Password</label>
+
+                                <input type="password" id="password" name="_password" class="form-control mb-3" autocomplete="current-password" required/>
+
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+
+                                <div class="checkbox mb-3">
+                                    <label>
+                                        <input type="checkbox" name="_remember_me" checked/> Remember me
+                                    </label>
+                                </div>
+
+                                <button class="btn btn-primary float-end" type="submit">
+                                    Sign in
+                                </button>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

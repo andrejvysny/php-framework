@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+    {{ encore_entry_link_tags('app') }}
+    {% block stylesheets %} {% endblock %}
+
+    {{ encore_entry_script_tags('app') }}
+    {% block javascripts %}{% endblock %}
+
+</head>
+<body id="{% block body_id %}{% endblock %}">
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="floating alert alert-{{ label }}" role="alert">
+            {{ message }}
+            <i class="fas fa-times" onclick="removeAlert(this)" ></i>
+        </div>
+    {% endfor %}
+{% endfor %}
+
+{% block body %}{% endblock %}
+<script>
+    function removeAlert(e){
+        e.parentNode.remove();
+    }
+</script>
+</body>
+</html>

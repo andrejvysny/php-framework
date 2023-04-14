@@ -1,0 +1,6 @@
+/vendor/
+/var/
+docker-compose.yml
+/.docker/
+.env
+.env.test

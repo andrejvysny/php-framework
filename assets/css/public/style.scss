@@ -1,0 +1,29 @@
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+
+
+$bg: #151719;
+$primary: #6163ff;
+
+.btn.btn-primary{
+  background-color: $primary;
+  border-color: $primary;
+}
+
+html, body {
+  background-color: $bg;
+  color:white;
+}
+
+
+body#login_page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    width: 400px;
+
+
+  }
+}

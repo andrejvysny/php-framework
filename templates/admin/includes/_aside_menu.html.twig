@@ -1,0 +1,31 @@
+<ul class="nav flex-column">
+    <li class="nav-item {{ app.request.get('_route') == 'admin_default' ? 'active' }}">
+        <a class="nav-link" href="{{ path('admin_default') }}">
+            <i class="fas fa-home"></i>Domov
+        </a>
+    </li>
+
+
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+        <li class="nav-item {{ app.request.get('_route') == 'admin_users_index' ? 'active' }}">
+            <a class="nav-link" href="{{ path('admin_users_index') }}">
+                <i class="fas fa-users"></i>Používatelia
+            </a>
+        </li>
+    {% endif %}
+
+    <li class="nav-item">
+        <ul>
+
+            {#
+            <li class="nav-item {{ app.request.get('_route') == 'route' ? 'active' }}">
+                <a class="nav-link" href="{{ path('route') }}">
+                    <i class="fas fa-edit-alt"></i> Section
+                </a>
+            </li>
+            #}
+
+        </ul>
+    </li>
+
+</ul>

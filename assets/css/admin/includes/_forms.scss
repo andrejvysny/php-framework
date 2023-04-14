@@ -1,0 +1,52 @@
+
+label.required {
+  font-weight: bold;
+
+  &:after{
+    content: " *";
+    color: $primary;
+    font-size: 1.1rem;
+  }
+}
+
+
+select {
+  &.form-control {
+    cursor: pointer;
+    position: relative;
+  }
+}
+
+.form-control {
+  border-radius: 10px !important;
+  border: 2px solid $main-txt-color;
+  background-color: $main-bg-color;
+  color: $main-txt-color;
+
+  &[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6;
+    filter: invert(1);
+  }
+  &[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1
+  }
+
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: $main-bg-color;
+    border-color: $primary;
+    color: $main-txt-color;
+  }
+
+  &:disabled {
+    background-color: #5d5d5d;
+    cursor: not-allowed;
+  }
+
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}

@@ -1,0 +1,12 @@
+@import "../variables";
+
+.modal-content{
+  background-color: $main-card-bg-color;
+
+  .modal-header{
+    border-color: $main-bg-color;
+  }
+  .modal-footer{
+    border-color: $main-bg-color;
+  }
+}

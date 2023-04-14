@@ -1,0 +1,66 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Hello UsersController!{% endblock %}
+
+{% block body %}
+
+    <header>
+        <h1>Používatelia</h1>
+        <div>
+            <a href="{{ path('admin_users_add') }}" class="btn btn-primary btn-sm">Pridať Použiváteľa</a>
+        </div>
+    </header>
+
+    <section class="card">
+        <div class="card-body">
+
+            <section class="table">
+                <div class="content" style="min-width: 1000px">
+                    <div class="row head">
+                        <div class="col-1">#ID</div>
+                        <div class="col-2">Rola</div>
+                        <div class="col-3">Username</div>
+                        <div class="col-3">Email</div>
+                        <div class="col ">Akcie</div>
+                    </div>
+                    {% for user in users %}
+
+                        <div class="row line">
+                            <div class="col-1 ">{{ user.id }}</div>
+                            <div class="col-2 ">
+                                {% if 'ROLE_ADMIN' in user.roles %}
+                                    ADMIN
+                                {% elseif 'ROLE_SUPER_ADMIN' in user.roles %}
+                                    SUPER ADMIN
+                                {% endif %}
+                            </div>
+                            <div class="col-3 justify-content-start">@{{ user.username }}</div>
+                            <div class="col-3 justify-content-start">
+                                {{ user.email }}
+
+                                {% if user.isVerified %}
+                                    <i class="fas fa-check text-success mx-2"></i>
+                                {% else %}
+                                    <i class="fas fa-exclamation-triangle text-warning mx-2"></i>
+                                {% endif %}
+
+                            </div>
+                            <div class="col ">
+
+                                {% if app.user.id != user.id %}
+                                    <a class="btn btn-secondary btn-sm" href="">
+                                        Upraviť
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </section>
+
+
+        </div>
+    </section>
+
+{% endblock %}

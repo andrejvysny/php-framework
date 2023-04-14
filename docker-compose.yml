@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+
+  cli:
+    image: ghcr.io/andrejvysny/php-cli:latest
+    environment:
+      APP_ENV: dev
+      APP_SECRET: 7a738e705c13f15aa2dbc53ae89c7c4a
+      DATABASE_URL: mysql://root:root@database:3306/app?serverVersion=10.5&charset=utf8mb4
+      MESSENGER_TRANSPORT_DSN: ""
+      MAILER_DSN: smtp://user:pass@maildev:1025
+    volumes:
+      - .:/var/www
+
+  web:
+    depends_on:
+      - database
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    container_name: web
+    ports:
+      - "80:80"
+    environment:
+      APP_ENV: dev
+      APP_SECRET: 7a738e705c13f15aa2dbc53ae89c7c4a
+      DATABASE_URL: mysql://root:root@database:3306/app?serverVersion=10.5&charset=utf8mb4
+      MESSENGER_TRANSPORT_DSN: ""
+      MAILER_DSN: smtp://user:pass@maildev:1025
+    volumes:
+      - .:/var/www/html
+
+  database:
+    image: mariadb:10.5
+    container_name: database
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_USER: user
+      MARIADB_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql:rw
+
+
+  maildev:
+    container_name: maildev
+    image: maildev/maildev
+    environment:
+      MAILDEV_INCOMING_USER: user
+      MAILDEV_INCOMING_PASS: pass
+    ports:
+      - "1025:1025"
+      - "1080:1080"
+
+
+volumes:
+###> doctrine/doctrine-bundle ###
+  db-data:
+###< doctrine/doctrine-bundle ###

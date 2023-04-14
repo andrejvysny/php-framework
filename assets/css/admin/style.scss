@@ -1,0 +1,124 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import "variables";
+@import "includes/template";
+@import "includes/user_panel";
+@import "includes/cards";
+@import "includes/forms";
+@import "includes/buttons";
+@import "includes/modals";
+@import "includes/tables";
+@import "includes/alerts";
+
+
+::-moz-selection {
+  background: $primary;
+}
+
+::selection {
+  background: $primary;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #888;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $primary;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $primary;
+}
+
+
+
+body {
+  font-size: $main-body-default-font-size;
+  font-family: $main-font-family;
+  background-color: $main-bg-color;
+  color: #ffffff;
+}
+
+
+a {
+  color: $main-txt-color !important;
+  text-decoration: none !important;
+
+  &:hover,
+  &:visited {
+    color: $main-txt-color;
+    text-decoration: none !important;
+  }
+}
+
+
+
+
+
+#overLayer {
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  background-color: $overLayer-bg;
+  opacity: 0;
+  display: none;
+  transition: .3s;
+}
+
+#overLayer.active {
+  display: block;
+  opacity: 1;
+}
+
+/**********************************************************************************************************************
+                                                     PAGES
+ **********************************************************************************************************************/
+
+
+body#admin_posts_index{
+
+  .card.post-item{
+    border-width: 4px;
+    border-color: $main-card-bg-color;
+    margin: 0 auto 1rem ;
+    max-width: 1000px;
+
+    &.top{
+      border-color: $primary;
+    }
+
+
+    .card-body{
+      padding: 10px;
+
+      img{
+        border-radius: 10px;
+      }
+
+      h2{
+        i{
+          color: $primary;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+
+
+body#admin_posts_add{
+
+
+}

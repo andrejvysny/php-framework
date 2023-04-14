@@ -1,0 +1,134 @@
+@import "../variables";
+
+a.btn ,.btn{
+
+  border-radius: 10px;
+  padding: .3rem 1rem;
+  border: 3px solid;
+  transition: background-color .3s;
+
+  &.btn-sm{
+    padding: 0.15rem .5rem;
+  }
+
+  &.btn-primary {
+    background-color: $primary;
+    color: $main-bg-color;
+    border-color: $primary;
+    &:hover{
+      background-color: transparent;
+      color: $primary;
+      border-color: $primary;
+    }
+    &:active:hover,
+    &:active,
+    &:focus:hover,
+    &:focus{
+      background-color: $primary;
+      color: $main-bg-color;
+      border-color: $primary;
+      box-shadow: none !important;
+    }
+  }
+
+  &.btn-secondary {
+    background-color: $secondary;
+    color: $main-bg-color !important;
+    border-color: $secondary;
+    &:hover{
+      background-color: transparent;
+      color: $secondary !important;
+      border-color: $secondary;
+    }
+    &:active:hover,
+    &:active,
+    &:focus:hover,
+    &:focus{
+      background-color: $secondary;
+      color: $main-bg-color !important;
+      border-color: $secondary;
+      box-shadow: none !important;
+    }
+  }
+
+  &.btn-success {
+    background-color: $success;
+    color: $main-bg-color;
+    border-color: $success;
+    &:hover{
+      background-color: transparent;
+      color: $success;
+      border-color: $success;
+    }
+    &:active:hover,
+    &:active,
+    &:focus:hover,
+    &:focus{
+      background-color: $success;
+      color: $main-bg-color;
+      border-color: $success;
+      box-shadow: none !important;
+    }
+  }
+
+  &.btn-danger {
+    background-color: $danger;
+    color: $main-bg-color;
+    border-color: $danger;
+    &:hover{
+      background-color: transparent;
+      color: $danger;
+      border-color: $danger;
+    }
+    &:active:hover,
+    &:active,
+    &:focus:hover,
+    &:focus{
+      background-color: $danger;
+      color: $main-bg-color;
+      border-color: $danger;
+      box-shadow: none !important;
+    }
+  }
+
+  &.btn-warning {
+    background-color: $warning;
+    color: $main-bg-color;
+    border-color: $warning;
+    &:hover{
+      background-color: transparent;
+      color: $warning;
+      border-color: $warning;
+    }
+    &:active:hover,
+    &:active,
+    &:focus:hover,
+    &:focus{
+      background-color: $warning;
+      color: $main-bg-color;
+      border-color: $warning;
+      box-shadow: none !important;
+    }
+  }
+
+  &.btn-info {
+    background-color: $info;
+    color: $main-bg-color;
+    border-color: $info;
+    &:hover{
+      background-color: transparent;
+      color: $info;
+      border-color: $info;
+    }
+    &:active:hover,
+    &:active,
+    &:focus:hover,
+    &:focus{
+      background-color: $info;
+      color: $main-bg-color;
+      border-color: $info;
+      box-shadow: none !important;
+    }
+  }
+
+}

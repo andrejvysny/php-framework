@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    {{ encore_entry_link_tags('admin') }}
+    {% block stylesheets %} {% endblock %}
+
+
+    {{ encore_entry_script_tags('admin') }}
+    {% block javascripts %}{% endblock %}
+
+</head>
+<body id="{% block body_id %}{% endblock %}">
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="floating alert alert-{{ label }}" role="alert">
+            {{ message }}
+            <i class="fas fa-times" onclick="removeAlert(this)" ></i>
+        </div>
+    {% endfor %}
+{% endfor %}
+
+{{ include('admin/includes/_userPanel.html.twig') }}
+
+<nav id="aside_menu">
+    <div class="head">
+        <h3 class="m-0">Administracia</h3>
+    </div>
+    {{ include('admin/includes/_aside_menu.html.twig') }}
+</nav>
+
+<section class="main_content">
+    <nav id="top_menu">
+            <span class="toggler" id="collapse_aside">
+                <i class="fas fa-chevron-left"></i>
+            </span>
+        <span class="mobil_toggler" id="mobil_collapse_aside">
+                <i class="fas fa-bars"></i>
+            </span>
+
+        <div>
+
+            {{ include('admin/includes/_topPanel.html.twig') }}
+            <a class="user-panel" id="userPanel-open">Ahoj, {{ app.user.username }}</a>
+        </div>
+    </nav>
+
+    <main role="main">
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+    </main>
+
+</section>
+
+
+
+<script>
+    function removeAlert(e){
+        e.parentNode.remove();
+    }
+</script>
+</body>
+</html>

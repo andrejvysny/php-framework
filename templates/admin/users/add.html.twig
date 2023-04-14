@@ -1,0 +1,27 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Hello UsersController!{% endblock %}
+
+{% block body %}
+
+    <header>
+        <h1>Nový používateľ</h1>
+        <div>
+            <a href="{{ path('admin_users_index') }}" class="btn btn-primary btn-sm">Späť</a>
+        </div>
+    </header>
+
+    <section class="card">
+        <div class="card-body">
+
+            {{ form_start(form) }}
+            {{ form_row(form.username) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.password) }}
+
+            <button class="btn btn-primary">{{ 'security.register.form.button.submit'|trans }}</button>
+            {{ form_end(form) }}
+        </div>
+    </section>
+
+{% endblock %}
